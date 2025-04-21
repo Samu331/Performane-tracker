@@ -1,0 +1,150 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #3498db; /* Pamphlet background - blue */
+    margin: 0;
+    padding: 40px; /* adds space around the pamphlet */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container for the main content styled like a white pamphlet */
+.container {
+    max-width: 800px;
+    width: 100%;
+    background: #ffffff; /* Pamphlet inner background - white */
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Fade-in animation for container */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header styling with slide animation */
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    animation: slideIn 1s ease-out;
+}
+
+/* Slide-in animation for headers */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Link styling with smooth color transition */
+a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* Table styling for analytics */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table, th, td {
+    border: 1px solid #bdc3c7;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #2980b9;
+    color: #ffffff;
+}
+
+tr:nth-child(even) {
+    background-color: #ecf0f1;
+}
+
+/* Form and input styling */
+form label {
+    font-weight: bold;
+    color: #34495e;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #bdc3c7;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, textarea:focus {
+    border-color: #3498db;
+}
+
+/* Submit button styling with hover and transform effects */
+input[type="submit"] {
+    background: #3498db;
+    color: #ffffff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+input[type="submit"]:hover {
+    background: #2980b9;
+    transform: scale(1.05);
+}
+
+/* Flash messages styling for alerts and success notifications */
+.flashes {
+    list-style-type: none;
+    padding: 0;
+}
+
+.flashes li {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.flashes li.error {
+    background-color: #e74c3c;
+    color: #ffffff;
+}
+
+.flashes li.success {
+    background-color: #2ecc71;
+    color: #ffffff;
+}
+

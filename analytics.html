@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Analytics - Performance Tracker{% endblock %}
+{% block content %}
+<h1>Analytics Overview</h1>
+<p><a href="{{ url_for('index') }}">Back to Home</a></p>
+{% if analytics_data %}
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Entry Count</th>
+                <th>Average Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in analytics_data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ "%.2f"|format(row[2]) }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No data to analyze yet.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Performance Tracker{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>📘 Performance Tracker</h1>
+
+    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+        <a href="{{ url_for('add_entry') }}" class="btn">➕ Add New Entry</a>
+        <a href="{{ url_for('analytics') }}" class="btn">📊 View Analytics</a>
+    </div>
+
+    {% if entries %}
+        <div>
+            {% for entry in entries %}
+                <div style="margin-bottom: 20px; padding: 15px; border-left: 4px solid #3498db; background-color: #f9f9f9; border-radius: 5px;">
+                    <strong>{{ entry.category }}</strong> - 
+                    {{ entry.metric }}: 
+                    <span style="color: #2c3e50; font-weight: bold;">{{ entry.value }}</span> 
+                    <em style="color: #7f8c8d;">({{ entry.date.strftime("%Y-%m-%d") }})</em>
+                    {% if entry.note %}
+                        <div style="margin-top: 5px; color: #34495e;">
+                            📝 {{ entry.note }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p style="text-align: center; color: #7f8c8d;">No entries yet. Start by adding one above!</p>
+    {% endif %}
+</div>
+{% endblock %}
+

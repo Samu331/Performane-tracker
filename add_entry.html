@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Add Entry - Performance Tracker{% endblock %}
+{% block content %}
+<h1>Add New Entry</h1>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class="flashes">
+      {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<form method="POST">
+    <label for="category">Category:</label><br>
+    <input type="text" id="category" name="category" required><br><br>
+
+    <label for="metric">Metric:</label><br>
+    <input type="text" id="metric" name="metric" required><br><br>
+
+    <label for="value">Value:</label><br>
+    <input type="text" id="value" name="value" required><br><br>
+
+    <label for="note">Note (optional):</label><br>
+    <textarea id="note" name="note"></textarea><br><br>
+
+    <input type="submit" value="Add Entry">
+</form>
+<br>
+<p><a href="{{ url_for('index') }}">Back to Home</a></p>
+{% endblock %}
